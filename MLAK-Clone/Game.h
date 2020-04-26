@@ -7,9 +7,11 @@ public:
 
 
 	//Time Funcs
-	void incrementDay() { Day++; };
-	void incremHour() { if (Hour < 20) { Hour++; } else { Hour = 8; } }
-	void incremTA() { timeAllowed++;}
+	void incrementDay() { Day++;};
+	void incremHour() {Hour++;}
+	void incremTA() {timeAllowed++;}
+
+	void setHour(int h) { Hour = h; }
 
 	int getDay() const { return Day; }
 	int getHour() const { return Hour; }

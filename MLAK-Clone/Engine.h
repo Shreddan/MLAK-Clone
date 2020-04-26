@@ -1,5 +1,5 @@
 #pragma once
-#include <olcPGE/olcPixelGameEngine.h>
+#include <olcPixelGameEngine.h>
 #include "Game.h"
 
 
@@ -15,6 +15,7 @@ public:
 	void Time(float fElapsedTime);
 
 	float timeTick = 0;
+	float time;
 
 	Game game;
 };
