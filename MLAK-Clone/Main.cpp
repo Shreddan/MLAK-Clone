@@ -4,7 +4,9 @@
 
 int main()
 {
+    const int width = 1400;
+    const int height = width * 9 / 16;
     Engine engine;
-    engine.Construct(800, 600, 1, 1);
+    engine.Construct(width, height, 1, 1);
     engine.Start();
 }

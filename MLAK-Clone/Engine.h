@@ -12,10 +12,15 @@ public:
 	bool OnUserCreate();
 	bool OnUserUpdate(float fElapsedTime);
 
+	void DrawHUD();
+
 	void Time(float fElapsedTime);
 
 	float timeTick = 0;
 	float time;
+
+	olc::Sprite* ui;
+	olc::Decal* UI;
 
 	Game game;
 };
