@@ -1,4 +1,6 @@
 #pragma once
+#include "Renderable.h"
+
 class Game
 {
 public:
@@ -18,12 +20,12 @@ public:
 	int getTA() const { return timeAllowed; }
 
 	
-
+	std::vector<Renderable> renderables;
 
 private:
 	int Hour;
 	int Day;
 	int timeAllowed;
-
+	
 };
 

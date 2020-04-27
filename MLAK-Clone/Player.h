@@ -7,7 +7,6 @@ public:
 	Player();
 	~Player();
 
-	std::string nameChar();
 
 
 	//Get - Set

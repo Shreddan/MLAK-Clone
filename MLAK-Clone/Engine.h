@@ -1,5 +1,5 @@
 #pragma once
-#include <olcPixelGameEngine.h>
+
 #include "Game.h"
 
 
@@ -18,9 +18,6 @@ public:
 
 	float timeTick = 0;
 	float time;
-
-	olc::Sprite* ui;
-	olc::Decal* UI;
 
 	Game game;
 };
