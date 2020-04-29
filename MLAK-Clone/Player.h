@@ -7,8 +7,6 @@ public:
 	Player();
 	~Player();
 
-
-
 	//Get - Set
 	void setMateria(int m) { Materia += m; }
 
