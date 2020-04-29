@@ -8,7 +8,10 @@ public:
 	~Player();
 
 	//Get - Set
+	void setName(std::string s) { Name = s; }
 	void setMateria(int m) { Materia += m; }
+	void setTreasury(int t) { Treasury += t; }
+	void incremCityLevel() { CityLevel++; }
 
 
 private:

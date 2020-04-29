@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Adventurer.cpp" />
+    <ClCompile Include="Equipment.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Engine.cpp" />
@@ -159,7 +161,9 @@
     <ClCompile Include="Renderable.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adventurer.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Equipment.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
