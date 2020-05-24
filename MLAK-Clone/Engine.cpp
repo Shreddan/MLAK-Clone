@@ -11,7 +11,7 @@ Engine::~Engine()
 
 bool Engine::OnUserCreate()
 {
-	game.renderables.emplace_back("borderdecoration.png");
+	game.addRenderable(0, "borderdecoration.png");
 	return true;
 }
 
@@ -23,11 +23,13 @@ bool Engine::OnUserUpdate(float fElapsedTime)
 	return true;
 }
 
+
+
 void Engine::DrawHUD()
 {
-	DrawPartialDecal(olc::vf2d(0, ScreenHeight() - 108), game.renderables[0].decal, HUDLEFT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
-	DrawPartialDecal(olc::vf2d(72, ScreenHeight() - 108), game.renderables[0].decal, HUDCENTER, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
-	DrawPartialDecal(olc::vf2d(144, ScreenHeight() - 108), game.renderables[0].decal, HUDRIGHT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+	DrawPartialDecal(olc::vf2d(0, ScreenHeight() - 108), game.states[0].renderables[0].decal, HUDLEFT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+	DrawPartialDecal(olc::vf2d(72, ScreenHeight() - 108), game.states[0].renderables[0].decal, HUDCENTER, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+	DrawPartialDecal(olc::vf2d(144, ScreenHeight() - 108), game.states[0].renderables[0].decal, HUDRIGHT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
 }
 
 void Engine::Time(float fElapsedTime)

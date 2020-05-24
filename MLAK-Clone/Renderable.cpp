@@ -1,5 +1,9 @@
 #include "Renderable.h"
 
+Renderable::Renderable()
+{
+}
+
 Renderable::Renderable(const std::string &path)
 {
 	Load(path);

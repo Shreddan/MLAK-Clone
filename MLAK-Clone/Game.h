@@ -8,6 +8,15 @@ public:
 	~Game();
 
 
+	struct State
+	{
+		State(int ID) { this->ID = 0; }
+
+		int ID;
+		std::vector<Renderable> renderables;
+	};
+
+
 	//Time Funcs
 	void incrementDay() { Day++;};
 	void incremHour() {Hour++;}
@@ -19,13 +28,17 @@ public:
 	int getHour() const { return Hour; }
 	int getTA() const { return timeAllowed; }
 
+	void addRenderable(int ind, const std::string path);
 	
-	std::vector<Renderable> renderables;
+	
+	std::vector<State> states;
 
 private:
 	int Hour;
 	int Day;
 	int timeAllowed;
+
+	
 	
 };
 

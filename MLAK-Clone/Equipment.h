@@ -10,6 +10,7 @@ protected:
 	int BuyCost;
 	int SellCost;
 	int Type;
+	bool isEquipped;
 	
 };
 
