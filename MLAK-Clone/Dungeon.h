@@ -7,7 +7,8 @@ enum Difficulties
 	Intermediate,
 	Hard,
 	VeryHard,
-	Brutal
+	Brutal,
+	Spire
 };
 class Dungeon
 {

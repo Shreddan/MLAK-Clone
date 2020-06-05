@@ -3,6 +3,10 @@
 Dungeon::Dungeon(int Diff)
 {
 	this->Difficulty = Diff;
+	this->isActive = false;
+	this->materiaAmount = 0;
+	this->hasLegendary = false;
+	this->hasBoss = false;
 	setNumEnemies();
 }
 
@@ -56,6 +60,13 @@ void Dungeon::setNumEnemies()
 			hasLegendary = true;
 			hasBoss = true;
 			break;
+		}
+		case Spire:
+		{
+			numEnemies = 5;
+			setMateriaAm(0);
+			hasLegendary = true;
+			hasBoss = false;
 		}
 
 	}
