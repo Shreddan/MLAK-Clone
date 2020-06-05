@@ -1,4 +1,17 @@
 #pragma once
+
+enum EqType
+{
+	None,
+	Head,
+	NeckAcc,
+	Torso,
+	WristAcc,
+	Arms,
+	Legs,
+	Boots
+};
+
 class Equipment
 {
 public:

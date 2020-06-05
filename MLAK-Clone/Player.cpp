@@ -6,6 +6,7 @@ Player::Player()
 	this->Materia = 0;
 	this->Treasury = 100;
 	this->CityLevel = 1;
+	this->Head;
 }
 
 Player::~Player()

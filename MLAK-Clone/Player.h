@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Equipment.h"
 
 class Player
 {
@@ -19,6 +20,12 @@ private:
 	int Materia;
 	int Treasury;
 	int CityLevel;
-
+	Equipment Head;
+	Equipment NeckAcc;
+	Equipment Torso;
+	Equipment WristAcc;
+	Equipment Arms;
+	Equipment Legs;
+	Equipment Boots;
 };
 
