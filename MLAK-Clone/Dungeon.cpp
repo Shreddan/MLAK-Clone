@@ -2,11 +2,12 @@
 
 Dungeon::Dungeon(int Diff)
 {
-	this->Difficulty = Diff;
+	this->difficulty = Diff;
 	this->isActive = false;
 	this->materiaAmount = 0;
 	this->hasLegendary = false;
 	this->hasBoss = false;
+	this->isCompleted = false;
 	setNumEnemies();
 }
 
@@ -16,7 +17,7 @@ Dungeon::~Dungeon()
 
 void Dungeon::setNumEnemies()
 {
-	switch (Difficulty)
+	switch (difficulty)
 	{
 		case VeryEasy:
 		{

@@ -5,7 +5,7 @@ enum State
 {
 	Intro,
 	Town,
-	Dungeon,
+	DungeonMap,
 	Pause,
 	Credits
 };
@@ -37,5 +37,6 @@ private:
 	int Day;
 	int timeAllowed;
 	int gState;
+	std::vector<Dungeon> dungeons;
 };
 

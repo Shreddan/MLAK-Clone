@@ -37,6 +37,9 @@ public:
 	//Bools
 	bool running;
 
+	//Stuff
+	
+
 
 };
 

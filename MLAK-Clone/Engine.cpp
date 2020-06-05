@@ -47,7 +47,7 @@ void Engine::DrawState(int i, float fElapsedTime)
 			Time(fElapsedTime);
 			break;
 		}
-		case Dungeon:
+		case DungeonMap:
 		{
 			Time(fElapsedTime);
 			break;
@@ -81,7 +81,7 @@ void Engine::InputHandler(int i)
 		{
 			if (GetKey(olc::ENTER).bPressed)
 			{
-				game.setState(1); 
+				game.setState(Town); 
 			}
 			else if (GetKey(olc::ESCAPE).bPressed)
 			{
@@ -93,11 +93,11 @@ void Engine::InputHandler(int i)
 		{
 			if (GetKey(olc::ESCAPE).bPressed)
 			{
-				game.setState(3);
+				game.setState(Pause);
 			}
 			break;
 		}
-		case Dungeon:
+		case DungeonMap:
 		{
 			break;
 		}

@@ -2,6 +2,7 @@
 #include "Rend.h"
 #include "Player.h"
 #include "Map.h"
+#include "Dungeon.h"
 
 class Renderable : public olc::Decal
 {
