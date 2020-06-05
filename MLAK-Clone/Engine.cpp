@@ -3,6 +3,7 @@
 Engine::Engine()
 {
 	sAppName = "The Life of a King";
+	running = true;
 }
 Engine::~Engine()
 {
@@ -11,25 +12,111 @@ Engine::~Engine()
 
 bool Engine::OnUserCreate()
 {
-	game.addRenderable(0, "borderdecoration.png");
+	olc::Sprite* Gui = new olc::Sprite("borderdecoration.png");
+	game.addGui(Gui);
 	return true;
 }
 
 bool Engine::OnUserUpdate(float fElapsedTime)
 {
-	Clear(olc::GREEN);
-	DrawHUD();
-	Time(fElapsedTime);
-	return true;
+	if (running)
+	{
+		Clear(olc::GREEN);
+		DrawState(game.getState(), fElapsedTime);
+		InputHandler(game.getState());
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+void Engine::DrawState(int i, float fElapsedTime)
+{
+	switch (i)
+	{
+		case Intro:
+		{
+			Startup();
+			break;
+		}
+		case Town:
+		{
+			DrawHUD();
+			Time(fElapsedTime);
+			break;
+		}
+		case Dungeon:
+		{
+			Time(fElapsedTime);
+			break;
+		}
+		case Pause:
+		{
+			break;
+		}
+		case Credits:
+		{
+			break;
+		}
+
+	}
 }
 
 
 
 void Engine::DrawHUD()
 {
-	DrawPartialDecal(olc::vf2d(0, ScreenHeight() - 108), game.states[0].renderables[0].decal, HUDLEFT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
-	DrawPartialDecal(olc::vf2d(72, ScreenHeight() - 108), game.states[0].renderables[0].decal, HUDCENTER, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
-	DrawPartialDecal(olc::vf2d(144, ScreenHeight() - 108), game.states[0].renderables[0].decal, HUDRIGHT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+	DrawPartialDecal(olc::vf2d(0, ScreenHeight() - 108), game.gui, HUDLEFT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+	DrawPartialDecal(olc::vf2d(72, ScreenHeight() - 108), game.gui, HUDCENTER, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+	DrawPartialDecal(olc::vf2d(144, ScreenHeight() - 108), game.gui, HUDRIGHT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+}
+
+void Engine::InputHandler(int i)
+{
+	switch (i)
+	{
+		case Intro:
+		{
+			if (GetKey(olc::ENTER).bPressed)
+			{
+				game.setState(1); 
+			}
+			else if (GetKey(olc::ESCAPE).bPressed)
+			{
+				running = false;
+			}
+			break;
+		}
+		case Town:
+		{
+			if (GetKey(olc::ESCAPE).bPressed)
+			{
+				game.setState(3);
+			}
+			break;
+		}
+		case Dungeon:
+		{
+			break;
+		}
+		case Pause:
+		{
+			break;
+		}
+		case Credits:
+		{
+			break;
+		}
+	}
+}
+
+
+void Engine::Startup()
+{
+	DrawStringDecal(olc::vf2d(ScreenWidth() / 3, ScreenHeight() / 2), "Royal Architect", olc::WHITE, olc::vf2d(5.f, 5.f));
+	FillRect(olc::vi2d(ScreenWidth() / 3, 500), olc::vi2d(100, 200), olc::VERY_DARK_GREY);
 }
 
 void Engine::Time(float fElapsedTime)

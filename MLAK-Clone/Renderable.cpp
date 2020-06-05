@@ -1,22 +1,15 @@
 #include "Renderable.h"
 
-Renderable::Renderable()
+Renderable::Renderable() : Decal(sprite)
 {
 }
 
-Renderable::Renderable(const std::string &path)
+Renderable::Renderable(olc::Sprite *spritesrc) : Decal(spritesrc)
 {
-	Load(path);
+	this->sprite = spritesrc;
 }
 
 Renderable::~Renderable()
 {
 	delete sprite;
-	delete decal;
-}
-
-void Renderable::Load(const std::string &path)
-{
-	sprite = new olc::Sprite(path);
-	decal = new olc::Decal(sprite);
 }

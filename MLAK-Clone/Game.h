@@ -1,44 +1,41 @@
 #pragma once
 #include "Renderable.h"
 
+enum State
+{
+	Intro,
+	Town,
+	Dungeon,
+	Pause,
+	Credits
+};
+
 class Game
 {
 public:
 	Game();
 	~Game();
 
-
-	struct State
-	{
-		State(int ID) { this->ID = 0; }
-
-		int ID;
-		std::vector<Renderable> renderables;
-	};
-
-
 	//Time Funcs
 	void incrementDay() { Day++;};
 	void incremHour() {Hour++;}
 	void incremTA() {timeAllowed++;}
-
 	void setHour(int h) { Hour = h; }
+	void setState(int state) { gState = state; }
 
 	int getDay() const { return Day; }
 	int getHour() const { return Hour; }
 	int getTA() const { return timeAllowed; }
+	int getState() const { return gState; }
 
-	void addRenderable(int ind, const std::string path);
+	void addGui(olc::Sprite *spritesrc);
 	
-	
-	std::vector<State> states;
+	GUI *gui;
 
 private:
 	int Hour;
 	int Day;
 	int timeAllowed;
-
-	
-	
+	int gState;
 };
 

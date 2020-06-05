@@ -3,25 +3,18 @@
 #include "Player.h"
 #include "Map.h"
 
-class Renderable
+class Renderable : public olc::Decal
 {
 public:
 	Renderable();
-	Renderable(const std::string &path);
+	Renderable(olc::Sprite *spritesrc);
 	~Renderable();
-
-	virtual void Load(const std::string &path) = 0;
-
-	olc::Sprite* sprite = nullptr;
-	olc::Decal* decal = nullptr;
 };
 
-class HUD : public Renderable
+struct GUI : public Renderable
 {
-public:
-	HUD(const std::string& path) { Load(path); }
-	~HUD() { };
-
-	void Load(const std::string& path) { sprite = new olc::Sprite(path); decal = new olc::Decal(sprite); };
+	GUI() {}
+	GUI(olc::Sprite* spritesrc) : Renderable(spritesrc) { this->sprite = spritesrc; }
+	~GUI() { delete sprite; };
 
 };

@@ -19,12 +19,14 @@ public:
 	};
 
 private:
+	std::string name;
 	int Level;
 	int Hp;
 	int HpMax;
 	int Energy;
-	int EnergyMaX;
+	int EnergyMax;
 	int Happiness;
+	int HappinessMax;
 	int Money;
 	int Class;
 
