@@ -29,6 +29,7 @@ public:
 	int getState() const { return gState; }
 
 	void addGui(olc::Sprite *spritesrc);
+	void initDungs();
 	
 	GUI *gui;
 

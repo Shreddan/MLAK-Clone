@@ -2,6 +2,7 @@
 
 Dungeon::Dungeon(int Diff)
 {
+	this->name = "";
 	this->difficulty = Diff;
 	this->isActive = false;
 	this->materiaAmount = 0;

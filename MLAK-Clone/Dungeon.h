@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 enum Difficulties
 {
@@ -32,6 +33,7 @@ public:
 	bool checkCompleted() const { return isCompleted; }
 
 private:
+	std::string name;
 	int difficulty;
 	int numEnemies;
 	int materiaAmount;
