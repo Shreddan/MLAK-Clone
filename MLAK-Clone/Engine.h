@@ -18,6 +18,9 @@ public:
 	void DrawState(int i, float fElapsedTime);
 	void DrawHUD();
 	void DrawNodes();
+	olc::Sprite* Gui = nullptr;
+	olc::Sprite* DungNode = nullptr;
+	olc::Decal* Node = nullptr;
 
 	//Input Funcs & vars
 	void InputHandler(int i);

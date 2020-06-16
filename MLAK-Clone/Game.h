@@ -30,10 +30,9 @@ public:
 
 	void addGui(olc::Sprite *spritesrc);
 	void initDungs();
-
-	int getDungeonCount() const { return dungeons.size(); }
 	
 	GUI *gui;
+	std::vector<Dungeon> dungeons;
 
 private:
 	int Hour;
@@ -41,6 +40,6 @@ private:
 	int timeAllowed;
 	int gState;
 	std::vector<Adventurer> adventurers;
-	std::vector<Dungeon> dungeons;
+	
 };
 

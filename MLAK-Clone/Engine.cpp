@@ -12,9 +12,10 @@ Engine::~Engine()
 
 bool Engine::OnUserCreate()
 {
-	olc::Sprite* Gui = new olc::Sprite("borderdecoration.png");
-	olc::Sprite* DungNode = new olc::Sprite("bubble.png");
+	Gui = new olc::Sprite("borderdecoration.png");
 	game.addGui(Gui);
+	DungNode = new olc::Sprite("bubble.png");
+	Node = new olc::Decal(DungNode);
 	return true;
 }
 
@@ -50,6 +51,7 @@ void Engine::DrawState(int i, float fElapsedTime)
 		}
 		case DungeonMap:
 		{
+			DrawNodes();
 			Time(fElapsedTime);
 			break;
 		}
@@ -76,9 +78,36 @@ void Engine::DrawHUD()
 
 void Engine::DrawNodes()
 {
-	if (game.getDungeonCount() > 0)
+	if (game.dungeons.size() > 0)
 	{
-
+		for (int i = 0; i < game.dungeons.size(); i++)
+		{
+			for (int x = 0; x < ScreenWidth() - 50; x += 100)
+			{
+				for (int y = 0; y < ScreenHeight() - 250; y += 75)
+				{
+					if (game.dungeons[i].checkActive)
+					{
+						if (!game.dungeons[i].checkCompleted())
+						{
+							DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::VERY_DARK_GREEN);
+						}
+						else if (game.dungeons[i].checkCompleted())
+						{
+							DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::GREEN);
+						}
+					}
+					else
+					{
+						DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::DARK_RED);
+					}
+				}
+			}
+		}
+	}
+	else
+	{
+		std::cout << "Dungeon list Empty" << std::endl;
 	}
 }
 
