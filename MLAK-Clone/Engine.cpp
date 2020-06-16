@@ -2,7 +2,7 @@
 
 Engine::Engine()
 {
-	sAppName = "The Life of a King";
+	sAppName = "Royal Architect";
 	running = true;
 }
 Engine::~Engine()
@@ -115,7 +115,7 @@ void Engine::InputHandler(int i)
 
 void Engine::Startup()
 {
-	DrawStringDecal(olc::vf2d(ScreenWidth() / 3, ScreenHeight() / 2), "Royal Architect", olc::WHITE, olc::vf2d(5.f, 5.f));
+	DrawStringDecal(olc::vf2d(ScreenWidth() / 3, ScreenHeight() / 2), sAppName, olc::WHITE, olc::vf2d(5.f, 5.f));
 	FillRect(olc::vi2d(ScreenWidth() / 3, 500), olc::vi2d(100, 200), olc::VERY_DARK_GREY);
 }
 
