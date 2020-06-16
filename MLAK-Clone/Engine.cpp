@@ -51,6 +51,7 @@ void Engine::DrawState(int i, float fElapsedTime)
 		}
 		case DungeonMap:
 		{
+			DrawHUD();
 			DrawNodes();
 			Time(fElapsedTime);
 			break;
@@ -80,29 +81,31 @@ void Engine::DrawNodes()
 {
 	if (game.dungeons.size() > 0)
 	{
-		for (int i = 0; i < game.dungeons.size(); i++)
+		std::cout << game.dungeons.size() << std::endl;
+		for (int x = 75; x < ScreenWidth() - 200; x += 75)
 		{
-			for (int x = 0; x < ScreenWidth() - 50; x += 100)
-			{
-				for (int y = 0; y < ScreenHeight() - 250; y += 75)
+				for (int y = 50; y < ScreenHeight() - 250; y += 50)
 				{
-					if (game.dungeons[i].checkActive)
+					for (int i = 0; i < game.dungeons.size(); i++)
 					{
-						if (!game.dungeons[i].checkCompleted())
+						if (game.dungeons[i].checkActive())
 						{
-							DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::VERY_DARK_GREEN);
+							if (!game.dungeons[i].checkCompleted())
+							{
+								DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::VERY_DARK_GREEN);
+							}
+							else if (game.dungeons[i].checkCompleted())
+							{
+								DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::GREEN);
+							}
 						}
-						else if (game.dungeons[i].checkCompleted())
+						else if (!game.dungeons[i].checkActive())
 						{
-							DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::GREEN);
+							DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::DARK_RED);
 						}
-					}
-					else
-					{
-						DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::DARK_RED);
 					}
 				}
-			}
+			
 		}
 	}
 	else
@@ -132,6 +135,10 @@ void Engine::InputHandler(int i)
 			if (GetKey(olc::ESCAPE).bPressed)
 			{
 				game.setState(Pause);
+			}
+			else if (GetKey(olc::NP2).bPressed)
+			{
+				game.setState(DungeonMap);
 			}
 			break;
 		}
