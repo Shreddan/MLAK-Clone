@@ -17,6 +17,7 @@ public:
 	//Drawing Funcs
 	void DrawState(int i, float fElapsedTime);
 	void DrawHUD();
+	void DrawNodes();
 
 	//Input Funcs & vars
 	void InputHandler(int i);

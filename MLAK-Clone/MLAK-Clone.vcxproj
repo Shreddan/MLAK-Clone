@@ -178,6 +178,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="borderdecoration.png" />
+    <Image Include="bubble.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

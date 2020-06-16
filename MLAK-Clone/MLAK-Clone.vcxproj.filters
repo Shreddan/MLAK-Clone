@@ -39,6 +39,9 @@
     <ClCompile Include="Equipment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Dungeon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -65,9 +68,15 @@
     <ClInclude Include="Equipment.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Dungeon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="borderdecoration.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="bubble.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -13,6 +13,7 @@ Engine::~Engine()
 bool Engine::OnUserCreate()
 {
 	olc::Sprite* Gui = new olc::Sprite("borderdecoration.png");
+	olc::Sprite* DungNode = new olc::Sprite("bubble.png");
 	game.addGui(Gui);
 	return true;
 }
@@ -71,6 +72,14 @@ void Engine::DrawHUD()
 	DrawPartialDecal(olc::vf2d(0, ScreenHeight() - 108), game.gui, HUDLEFT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
 	DrawPartialDecal(olc::vf2d(72, ScreenHeight() - 108), game.gui, HUDCENTER, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
 	DrawPartialDecal(olc::vf2d(144, ScreenHeight() - 108), game.gui, HUDRIGHT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+}
+
+void Engine::DrawNodes()
+{
+	if (game.getDungeonCount() > 0)
+	{
+
+	}
 }
 
 void Engine::InputHandler(int i)

@@ -27,5 +27,7 @@ private:
 	Equipment Arms;
 	Equipment Legs;
 	Equipment Boots;
+
+
 };
 
