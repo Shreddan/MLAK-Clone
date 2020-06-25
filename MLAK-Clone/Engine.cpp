@@ -81,31 +81,25 @@ void Engine::DrawNodes()
 {
 	if (game.dungeons.size() > 0)
 	{
-		std::cout << game.dungeons.size() << std::endl;
-		for (int x = 75; x < ScreenWidth() - 200; x += 75)
+		//std::cout << game.dungeons.size() << std::endl;
+		
+		for (int i = 0; i < game.dungeons.size(); i++)
 		{
-				for (int y = 50; y < ScreenHeight() - 250; y += 50)
+			if (game.dungeons[i].checkActive())
+			{
+				if (!game.dungeons[i].checkCompleted())
 				{
-					for (int i = 0; i < game.dungeons.size(); i++)
-					{
-						if (game.dungeons[i].checkActive())
-						{
-							if (!game.dungeons[i].checkCompleted())
-							{
-								DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::VERY_DARK_GREEN);
-							}
-							else if (game.dungeons[i].checkCompleted())
-							{
-								DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::GREEN);
-							}
-						}
-						else if (!game.dungeons[i].checkActive())
-						{
-							DrawDecal(olc::vf2d(x, y), Node, olc::vf2d(1.f, 1.f), olc::DARK_RED);
-						}
-					}
+					DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, olc::vf2d(1.f, 1.f), olc::VERY_DARK_GREEN);
 				}
-			
+				else if (game.dungeons[i].checkCompleted())
+				{
+					DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, olc::vf2d(1.f, 1.f), olc::GREEN);
+				}
+			}
+			else
+			{
+				DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, olc::vf2d(1.f, 1.f), olc::DARK_RED);
+			}
 		}
 	}
 	else

@@ -1,8 +1,10 @@
 #include "Dungeon.h"
 
-Dungeon::Dungeon(int Diff)
+Dungeon::Dungeon(int Diff, float x, float y)
 {
 	this->name = "";
+	this->x = x;
+	this->y = y;
 	this->difficulty = Diff;
 	this->isActive = false;
 	this->materiaAmount = 0;

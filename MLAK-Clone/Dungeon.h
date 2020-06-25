@@ -14,7 +14,7 @@ enum Difficulties
 class Dungeon
 {
 public:
-	Dungeon(int Diff);
+	Dungeon(int Diff, float x, float y);
 	~Dungeon();
 
 
@@ -24,6 +24,8 @@ public:
 	void setActive(bool active) { isActive = active; }
 
 	//Getters
+	float getXCoord() const { return x; }
+	float getYCoord() const { return y; }
 	int getDifficulty() const { return difficulty; }
 	int getNumEnemies() const { return numEnemies; }
 	int getMateriaAm() const { return materiaAmount; }
@@ -33,6 +35,8 @@ public:
 	bool checkCompleted() const { return isCompleted; }
 
 private:
+	float x;
+	float y;
 	std::string name;
 	int difficulty;
 	int numEnemies;
