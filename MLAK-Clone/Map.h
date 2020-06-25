@@ -11,7 +11,7 @@ public:
 		int tHeight;
 	};
 
-	void Create(int w, int h);
+	void Create(size_t w, size_t h);
 
 
 	//Objs

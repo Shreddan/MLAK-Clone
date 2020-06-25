@@ -130,7 +130,7 @@ void Engine::InputHandler(int i)
 			{
 				game.setState(Pause);
 			}
-			else if (GetKey(olc::NP2).bPressed)
+			else if (GetKey(olc::K2).bPressed)
 			{
 				game.setState(DungeonMap);
 			}
@@ -138,6 +138,10 @@ void Engine::InputHandler(int i)
 		}
 		case DungeonMap:
 		{
+			if (GetKey(olc::K1).bPressed)
+			{
+				game.setState(Town);
+			}
 			break;
 		}
 		case Pause:
