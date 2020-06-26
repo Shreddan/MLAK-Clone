@@ -4,6 +4,7 @@
 #include "Map.h"
 #include "Dungeon.h"
 #include "Adventurer.h"
+#include "Building.h"
 
 class Renderable : public olc::Decal
 {

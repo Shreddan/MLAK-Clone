@@ -33,6 +33,7 @@ public:
 	
 	GUI *gui;
 	std::vector<Dungeon> dungeons;
+	std::vector<Building> buildings;
 
 private:
 	int Hour;
