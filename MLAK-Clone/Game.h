@@ -1,5 +1,25 @@
 #pragma once
-#include "Renderable.h"
+#include "Rend.h"
+#include "Player.h"
+#include "Map.h"
+#include "Dungeon.h"
+#include "Adventurer.h"
+#include "Building.h"
+
+struct GUI : public olc::Decal
+{
+	GUI(olc::Sprite* spritesrc) : Decal(spritesrc) { this->sprite = spritesrc; }
+	~GUI() { delete sprite; }
+
+};
+
+struct Build : public olc::Decal
+{
+	Build(olc::Sprite* spritesrc) : Decal(spritesrc) { this->sprite = spritesrc; }
+	~Build() { delete sprite; }
+
+	std::vector<Building> BuildTypes;
+};
 
 enum State
 {
@@ -30,10 +50,12 @@ public:
 
 	void addGui(olc::Sprite *spritesrc);
 	void initDungs();
+	void initBuilds();
 	
 	GUI *gui;
 	std::vector<Dungeon> dungeons;
 	std::vector<Building> buildings;
+
 
 private:
 	int Hour;
@@ -41,6 +63,9 @@ private:
 	int timeAllowed;
 	int gState;
 	std::vector<Adventurer> adventurers;
+
 	
 };
+
+
 

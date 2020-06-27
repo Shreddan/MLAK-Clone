@@ -22,6 +22,8 @@ public:
 	olc::Sprite* DungNode = nullptr;
 	olc::Decal* Node = nullptr;
 
+	olc::vf2d nodeScale = { 0.5f, 0.5f };
+
 	//Input Funcs & vars
 	void InputHandler(int i);
 

@@ -28,3 +28,12 @@ void Game::initDungs()
 	dungeons.emplace_back(3, 300, 200);
 	dungeons.emplace_back(4, 375, 250);
 }
+
+void Game::initBuilds()
+{
+	buildings.emplace_back(0, true);
+	buildings.emplace_back(1, true);
+	buildings.emplace_back(2, true);
+	buildings.emplace_back(3, false);
+	buildings.emplace_back(4, true);
+}

@@ -1,7 +1,8 @@
 #include "Quest.h"
 
-Quest::Quest()
+Quest::Quest(const int qType)
 {
+	this->qType = qType;
 }
 
 Quest::~Quest()

@@ -89,16 +89,16 @@ void Engine::DrawNodes()
 			{
 				if (!game.dungeons[i].checkCompleted())
 				{
-					DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, olc::vf2d(1.f, 1.f));
+					DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, nodeScale);
 				}
 				else if (game.dungeons[i].checkCompleted())
 				{
-					DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, olc::vf2d(1.f, 1.f));
+					DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, nodeScale, olc::DARK_GREEN);
 				}
 			}
 			else
 			{
-				DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, olc::vf2d(1.f, 1.f));
+				DrawDecal(olc::vf2d(game.dungeons[i].getXCoord(), game.dungeons[i].getYCoord()), Node, nodeScale, olc::DARK_RED);
 			}
 		}
 	}

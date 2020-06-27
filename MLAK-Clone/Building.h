@@ -17,8 +17,12 @@ enum BuildingType
 class Building
 {
 public:
-	Building(std::string path, int bType);
+	Building(int bType, bool isR);
 	~Building();
+
+
+	//Get - Set
+	void setAvailable(bool a) { isAvailable = a; }
 
 private:
 	int x;
@@ -26,6 +30,6 @@ private:
 	int bType;
 	olc::Sprite* spr = nullptr;
 	olc::Decal* dec = nullptr;
-
+	bool isAvailable;
 };
 

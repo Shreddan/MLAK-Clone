@@ -11,7 +11,7 @@ enum QuestType
 class Quest
 {
 public:
-	Quest();
+	Quest(const int qType);
 	~Quest();
 
 private:

@@ -168,7 +168,6 @@
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Quest.cpp" />
-    <ClCompile Include="Renderable.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Adventurer.h" />
@@ -181,7 +180,6 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Quest.h" />
     <ClInclude Include="Rend.h" />
-    <ClInclude Include="Renderable.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="borderdecoration.png" />

@@ -1,10 +1,9 @@
 #include "Building.h"
 
-Building::Building(const std::string path, int bType)
+Building::Building(int bType, bool isR)
 {
-	this->spr = new olc::Sprite(path);
-	this->dec = new olc::Decal(spr);
 	this->bType = bType;
+	this->isAvailable = isR;
 }
 
 Building::~Building()
