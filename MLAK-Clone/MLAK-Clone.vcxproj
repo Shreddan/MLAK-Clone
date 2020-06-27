@@ -182,6 +182,7 @@
     <ClInclude Include="Rend.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="basictiles.png" />
     <Image Include="borderdecoration.png" />
     <Image Include="bubble.png" />
   </ItemGroup>

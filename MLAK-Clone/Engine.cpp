@@ -16,6 +16,7 @@ bool Engine::OnUserCreate()
 	game.addGui(Gui);
 	DungNode = new olc::Sprite("bubble.png");
 	Node = new olc::Decal(DungNode);
+	CreateLayer();
 	return true;
 }
 
@@ -45,19 +46,21 @@ void Engine::DrawState(int i, float fElapsedTime)
 		}
 		case Town:
 		{
-			DrawHUD();
-			Time(fElapsedTime);
+			if (!game.isPaused)
+			{
+				DrawHUD();
+				Time(fElapsedTime);
+			}
 			break;
 		}
 		case DungeonMap:
 		{
-			DrawHUD();
-			DrawNodes();
-			Time(fElapsedTime);
-			break;
-		}
-		case Pause:
-		{
+			if (!game.isPaused)
+			{
+				DrawHUD();
+				DrawNodes();
+				Time(fElapsedTime);
+			}
 			break;
 		}
 		case Credits:
@@ -108,6 +111,10 @@ void Engine::DrawNodes()
 	}
 }
 
+void Engine::DrawPause()
+{
+}
+
 void Engine::InputHandler(int i)
 {
 	switch (i)
@@ -126,9 +133,13 @@ void Engine::InputHandler(int i)
 		}
 		case Town:
 		{
-			if (GetKey(olc::ESCAPE).bPressed)
+			if (GetKey(olc::ESCAPE).bPressed && !game.isPaused)
 			{
-				game.setState(Pause);
+				game.isPaused = true;
+			}
+			else if (GetKey(olc::ESCAPE).bPressed && game.isPaused)
+			{
+				game.isPaused = false;
 			}
 			else if (GetKey(olc::K2).bPressed)
 			{
@@ -138,14 +149,18 @@ void Engine::InputHandler(int i)
 		}
 		case DungeonMap:
 		{
+			if (GetKey(olc::ESCAPE).bPressed && !game.isPaused)
+			{
+				game.isPaused = true;
+			}
+			else if (GetKey(olc::ESCAPE).bPressed && game.isPaused)
+			{
+				game.isPaused = false;
+			}
 			if (GetKey(olc::K1).bPressed)
 			{
 				game.setState(Town);
 			}
-			break;
-		}
-		case Pause:
-		{
 			break;
 		}
 		case Credits:

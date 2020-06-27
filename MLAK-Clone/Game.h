@@ -26,7 +26,6 @@ enum State
 	Intro,
 	Town,
 	DungeonMap,
-	Pause,
 	Credits
 };
 
@@ -43,6 +42,8 @@ public:
 	void setHour(int h) { Hour = h; }
 	void setState(int state) { gState = state; }
 
+	bool isPaused = false;
+
 	int getDay() const { return Day; }
 	int getHour() const { return Hour; }
 	int getTA() const { return timeAllowed; }
@@ -52,10 +53,11 @@ public:
 	void initDungs();
 	void initBuilds();
 	
-	GUI *gui;
+	GUI *gui = nullptr;
+	Map* map = nullptr;
 	std::vector<Dungeon> dungeons;
 	std::vector<Building> buildings;
-
+	std::vector<Build> builds;
 
 private:
 	int Hour;
@@ -63,7 +65,6 @@ private:
 	int timeAllowed;
 	int gState;
 	std::vector<Adventurer> adventurers;
-
 	
 };
 
