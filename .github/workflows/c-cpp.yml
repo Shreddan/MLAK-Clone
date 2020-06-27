@@ -23,3 +23,6 @@ jobs:
 
     - name: echo MSBuild
       run: msbuild -version
+
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1
