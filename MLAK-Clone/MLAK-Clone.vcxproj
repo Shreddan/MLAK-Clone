@@ -185,6 +185,7 @@
     <Image Include="basictiles.png" />
     <Image Include="borderdecoration.png" />
     <Image Include="bubble.png" />
+    <Image Include="background1.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

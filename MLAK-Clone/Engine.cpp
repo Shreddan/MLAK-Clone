@@ -16,6 +16,9 @@ bool Engine::OnUserCreate()
 	game.addGui(Gui);
 	DungNode = new olc::Sprite("bubble.png");
 	Node = new olc::Decal(DungNode);
+	back1 = new olc::Sprite("background1.png");
+	dBack1 = new olc::Decal(back1);
+	CreateLayer();
 	CreateLayer();
 	return true;
 }
@@ -55,8 +58,11 @@ void Engine::DrawState(int i, float fElapsedTime)
 		}
 		case DungeonMap:
 		{
+			EnableLayer(2, true);
+			DrawBackground(*dBack1);
 			if (!game.isPaused)
 			{
+				EnableLayer(1, true);
 				DrawHUD();
 				DrawNodes();
 				Time(fElapsedTime);
@@ -78,6 +84,11 @@ void Engine::DrawHUD()
 	DrawPartialDecal(olc::vf2d(0, ScreenHeight() - 108), game.gui, HUDLEFT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
 	DrawPartialDecal(olc::vf2d(72, ScreenHeight() - 108), game.gui, HUDCENTER, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
 	DrawPartialDecal(olc::vf2d(144, ScreenHeight() - 108), game.gui, HUDRIGHT, HUDTILE, olc::vf2d(2.f, 3.f), olc::BLUE);
+}
+
+void Engine::DrawBackground(olc::Decal &dec)
+{
+	DrawDecal(olc::vf2d(0, 0), &dec, olc::vf2d(1.f, 1.f));
 }
 
 void Engine::DrawNodes()
